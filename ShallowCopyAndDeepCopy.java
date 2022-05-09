@@ -3,7 +3,9 @@ public class ShallowCopyAndDeepCopy {
         ShallowCopyAndDeepCopy obj = new ShallowCopyAndDeepCopy();
 
         SampleExample testObj = obj.new SampleExample(1, "sdf");
-        testObj.clone();
+        System.out.println("Inside main method "+testObj.hashCode());
+        SampleExample copyObj = testObj.clone();
+        System.out.println("Inside main method "+copyObj.hashCode());
     }
 
     class SampleExample implements Cloneable{
@@ -13,6 +15,7 @@ public class ShallowCopyAndDeepCopy {
         SampleExample(int id, String name){
             this.id = id;
             this.name = name;
+            System.out.println("Inside constructor hashcode "+this.hashCode());
         }
 
         SampleExample(SampleExample originalObject){ //copy constructor
