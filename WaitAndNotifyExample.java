@@ -1,3 +1,8 @@
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.*;
+
 class WaitAndNotifyExample{
 
     Integer no = new Integer(1);
@@ -7,6 +12,7 @@ class WaitAndNotifyExample{
     public static void main(String args[]){
         
         WaitAndNotifyExample obj = new WaitAndNotifyExample();
+
         Runnable evenNumberTask = new Runnable(){
             @Override
             public void run(){
@@ -53,7 +59,13 @@ class WaitAndNotifyExample{
         Thread th1 = new Thread(evenNumberTask);
         Thread th2 = new Thread(oddNumberTask);
 
-        th1.start();
-        th2.start();
+        // th1.start();
+        // th2.start();
+
+        // List<Runnable> tasks = new ArrayList();
+        // ExecutorService executor = Executors.newFixedThreadPool(4);
+        // executor.invokeAll(tasks.stream().map(x -> new Callable<V>() {
+            
+        // }));
     }
 }

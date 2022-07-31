@@ -12,18 +12,18 @@ public class MethodOverloadingExample {
 
    
     //On uncommenting the below code ambigous compile time error will be thrown
-    // public void testMethod(Integer number){
-    //     System.out.println("Integer method called");
-    // }
+    public void testMethod(Integer number){
+        System.out.println("Integer method called");
+    }
 
     // public void testMethod(Number number){
     //     System.out.println("Number method called");
     // }
 
 
-    public void testMethod(String no){
-        System.out.println("String method called");
-    }
+    // public void testMethod(String no){
+    //     System.out.println("String method called");
+    // }
 
     public void testMethod(Object str){
         System.out.println("Obejct method called");
