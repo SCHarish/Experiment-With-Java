@@ -15,5 +15,5 @@ public class FunctionalInterfaceExample {
         //Consumer
         Supplier<Integer> mySupplier =  () -> { return 5; };
         
-    }
+    }   
 }

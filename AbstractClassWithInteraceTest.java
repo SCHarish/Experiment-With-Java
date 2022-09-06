@@ -21,7 +21,7 @@ interface AbstractClassWithInteraceTest_interface1{
 
 abstract class AbstractClassWithInteraceTest_abstractClass{
      int testMethod(){
-        return 1;
+        return 6;
     }
 
     int testMethod3(){

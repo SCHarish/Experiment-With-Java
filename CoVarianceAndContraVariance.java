@@ -12,4 +12,8 @@ public class CoVarianceAndContraVariance {
     public static void sum(List<? extends Number> list){
 
     }
+
+    public static void sum1(List<? super Number> list){
+
+    }
 }

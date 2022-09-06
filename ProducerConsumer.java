@@ -1,5 +1,6 @@
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class ProducerConsumer {
 
@@ -11,8 +12,8 @@ public class ProducerConsumer {
         ProducerConsumer lockObj = new ProducerConsumer();
 
         ExecutorService myExecutor = Executors.newFixedThreadPool(3);
+        
 
-      
         
         
         Runnable producer = () -> {
@@ -71,10 +72,15 @@ public class ProducerConsumer {
             
         };
 
-        Thread th1 = new Thread(producer);
-        Thread th2 = new Thread(consumer);
-        th1.start();
-        th2.start();
+        // Thread th1 = new Thread(producer);
+        // Thread th2 = new Thread(consumer);
+        // th1.start();
+        // th2.start();
+        myExecutor.submit(producer);
+        Future f = myExecutor.submit(consumer);
+       
+        myExecutor.shutdown();
+        myExecutor.awaitTermination(3, TimeUnit.MICROSECONDS);
     }
 
 }

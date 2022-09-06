@@ -9,17 +9,32 @@ public class HashMapTest {
         testMap.put("Tom", "Jerry");
         testMap.put("Moon","Knight");
 
+        //sort by values
+        Map<String, String>  resultSortedByValues = testMap.entrySet().stream().sorted((a, b) -> a.getValue().compareTo(b.getValue())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         List myList = new ArrayList<>(testMap.keySet());
-        
-       //Sort by keys
-       testMap = testMap.entrySet().stream().sorted((e1, e2) -> e1.getKey().compareTo(e2.getKey())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+       // testMap = testMap.entrySet().stream().sorted((e1, e2) -> e1.getKey().compareTo(e2.getKey())).collect(Collectors.toMap(keyMapper, valueMapper).toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-       for(Map.Entry<String, String> entry : testMap.entrySet()){
-           System.out.println(entry.getKey());
-       }
+    //    //Sort by keys
+    //    testMap = testMap.entrySet().stream().sorted((e1, e2) -> e1.getKey().compareTo(e2.getKey())).collect(Collectors.toMap(keyMapper, valueMapper).toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+    //    for(Map.Entry<String, String> entry : testMap.entrySet()){
+    //        System.out.println(entry.getKey());
+    //    }
 
        //Sort by values
-     
+     System.out.println("============Sory by Values===============");
+       Map<String, Integer> map = new HashMap();
 
+        List<Map.Entry<String, Integer>> resultList = new ArrayList();
+
+        map.put("Harish", 100);
+        map.put("Ram", 200);
+        map.put("Vasu", 10);
+       // TreeSet
+       // Object obj = new Object();
+        Set<Map.Entry<String, Integer>> hset = map.entrySet();
+        
+        resultList = hset.stream().sorted((emp1, emp2) -> Integer.compare(emp2.getValue(), emp1.getValue())).collect(Collectors.toList());
+       resultList.forEach(x -> System.out.println(x.getKey()));
     }
 }

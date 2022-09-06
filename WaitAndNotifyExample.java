@@ -17,8 +17,8 @@ class WaitAndNotifyExample{
             @Override
             public void run(){
                 synchronized(obj.lock){
-                    while(obj.no < 20){
-                        while(obj.no % 2 == 0){
+                    while(obj.no < 19){ //Continuously run
+                        if(obj.no % 2 != 0){ //if odd number, then wait. If even number, then print.
                             try{
                                 obj.lock.wait();
                             }catch(InterruptedException ex){
@@ -26,9 +26,10 @@ class WaitAndNotifyExample{
                             }
                         }
 
-                        //do task    
+                        //do task   
+                        System.out.println("Even printer "+obj.no);    
                         obj.no++;
-                        System.out.println("Even printer "+obj.no);
+                        
                         //notify
                         obj.lock.notify();
                     }   
@@ -40,8 +41,8 @@ class WaitAndNotifyExample{
 
 
                 synchronized(obj.lock){
-                    while(obj.no < 20){
-                        while(obj.no % 2 != 0){
+                    while(obj.no < 19){ //Continuously run
+                        if(obj.no % 2 == 0){ //if even number, then wait. if odd number, then print.
                             try{
                                 obj.lock.wait();
                             }catch(InterruptedException ex){
@@ -49,8 +50,10 @@ class WaitAndNotifyExample{
                             }
                         }
 
-                        obj.no++;
+                        
                         System.out.println("Odd printer "+obj.no);
+                        obj.no++;
+                        
                         obj.lock.notify();
                     }
                 }
@@ -59,8 +62,8 @@ class WaitAndNotifyExample{
         Thread th1 = new Thread(evenNumberTask);
         Thread th2 = new Thread(oddNumberTask);
 
-        // th1.start();
-        // th2.start();
+        th1.start();
+        th2.start();
 
         // List<Runnable> tasks = new ArrayList();
         // ExecutorService executor = Executors.newFixedThreadPool(4);
