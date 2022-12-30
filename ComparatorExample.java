@@ -9,6 +9,10 @@ public class ComparatorExample {
             "hsdf","erer","cc2az","mlsdf"
         };
 
+        Arrays.sort(input);
+
+        Arrays.sort(input, Collections.reverseOrder());
+
         Collections.sort(Arrays.asList(input), ascendingComparator);
 
         Comparator<String> descendingComparator = (a ,b) ->{

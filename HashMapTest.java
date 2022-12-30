@@ -36,5 +36,11 @@ public class HashMapTest {
         
         resultList = hset.stream().sorted((emp1, emp2) -> Integer.compare(emp2.getValue(), emp1.getValue())).collect(Collectors.toList());
        resultList.forEach(x -> System.out.println(x.getKey()));
+
+
+
+       Set<Map.Entry<String, Integer>> mySet = map.entrySet();
+       Comparator<Map.Entry<String,Integer>> nameComparator = (a ,b) -> a.getKey().compareTo(b.getKey()); //Functional Interface and lambda usage
+       mySet.stream().sorted(nameComparator).collect(Collectors.toMap());
     }
 }

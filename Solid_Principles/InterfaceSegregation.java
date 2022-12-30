@@ -44,7 +44,7 @@ public class InterfaceSegregation{
  }
 
  interface PetAnimal extends Animal{
-
+    void groomAnimal();
  }
 
  class Dog implements PetAnimal{

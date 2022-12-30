@@ -21,14 +21,13 @@ class StreamsExample{
 	int counter = 0;
 	public static void main(String args[]){
 		int arr[] = {1,2,34,43,3,23};
-		
+
 		//Find max
 		System.out.println(Arrays.stream(arr).max().getAsInt()); //getAsInt will convert the object to primitive type.
 		StreamsExample obj = new StreamsExample();
 
 		//Primitive Streams
 		// There are 3 primitive streams int, long, double
-
 		IntStream.of(1,2,3).forEach(x -> System.out.println(x)); //IntStream accepting range of numbers using of method
 
 		List<String> firstList = List.of("d", "sdf");
@@ -52,15 +51,12 @@ class StreamsExample{
 		salareeUpdatedList.forEach(x-> {
 			System.out.println("Name "+x.name); 
 			System.out.println("Salary "+ x.salary);
-			
 		});
-
 	//	firstList.stream().unordered().parallel().collect(Collectors.toCollection(collectionFactory))
-
 		System.out.println("Counter modified in the stream "+obj.counter);
 		
 		//Sum of even numbers
-		int[] numbers = new int[]{ 4, 5, 9 ,2 , 1, 0 , 6, 3, 7, 1, 18};
+		int []numbers = new int[]{ 4, 5, 9 ,2 , 1, 0 , 6, 3, 7, 1, 18};
 
 		IntPredicate test = (no) -> no % 2 == 0;
 

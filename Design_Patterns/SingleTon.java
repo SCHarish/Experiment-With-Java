@@ -1,6 +1,6 @@
 
 public class SingleTon{
-	private static  volatile SingleTon _obj;
+	private static volatile SingleTon _obj;
 	private SingleTon(){
 
 	}
